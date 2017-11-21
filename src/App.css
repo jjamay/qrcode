@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Arimo|Didact+Gothic');
+
 .App {
   text-align: center;
 }
@@ -8,18 +10,43 @@
 }
 
 .App-header {
-  background-color: #222;
+  background-color: #028090;
   height: 150px;
   padding: 20px;
   color: white;
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-family: 'Didact Gothic', sans-serif;
+  font-size: 3.5em;
 }
 
 .App-intro {
   font-size: large;
+}
+
+.main-content {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.main-content.labels {
+  display: flex;
+  flex-direction: column;
+}
+.main-content.QRCode {
+  display: inline-block;
+}
+
+.labels label {
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: initial;
+}
+
+.labels label input{
+  margin-left: auto;
 }
 
 @keyframes App-logo-spin {

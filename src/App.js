@@ -21,21 +21,23 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Baymax</h1>
         </header>
-        <div>
-          <label>
-            Drug:
-            <input type="text" value={this.state.drug} onChange={(e) => this.handleChange('drug', e)} />
-          </label>
-          <label>
-            Time:
-            <input type="text" value={this.state.time} onChange={(e) => this.handleChange('time', e)} />
-          </label>
-          <label>
-            Quantity:
-            <input type="text" value={this.state.quantity} onChange={(e) => this.handleChange('quantity', e)} />
-          </label>
+        <div className="main-content">
+          <div className="labels">
+            <label>
+              Drug:
+              <input type="text" value={this.state.drug} onChange={(e) => this.handleChange('drug', e)} />
+            </label>
+            <label>
+              Time:
+              <input type="text" value={this.state.time} onChange={(e) => this.handleChange('time', e)} />
+            </label>
+            <label>
+              Quantity:
+              <input type="text" value={this.state.quantity} onChange={(e) => this.handleChange('quantity', e)} />
+            </label>
+          </div>
+          <QRCode value={value} />
         </div>
-        <QRCode value={value} />
       </div>
     );
   }
