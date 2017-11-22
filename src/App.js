@@ -1,41 +1,68 @@
 import React, { Component } from 'react';
 import './App.css';
-import QRCode from 'qrcode.react';
+import { Container, Row, Col } from 'reactstrap'
+import NavBar from './Navbar';
+import InputForm from './InputForm';
+import QR from './QR';
+import moment from 'moment';
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {}
-    this.handleChange = this.handleChange.bind(this)
+    this.state = {
+      name: '',
+      dosages: [],
+      quantity: '',
+      units: 'Pills',
+      startdate: moment()
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleDateChange = this.handleDateChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+    this.onDosageDelete = this.onDosageDelete.bind(this);
   }
 
-  handleChange(property, e) {
-    this.setState({ [property]: e.target.value })
+  handleChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
+  handleDateChange(date) {
+    this.setState({ startdate: date })
+  }
+
+  onSubmit(newDosage) {
+    this.setState({ dosages: [...this.state.dosages, newDosage]});
+  }
+
+  onDosageDelete(index, e) {
+    let dosages = this.state.dosages;
+    dosages.splice(index, 1)
+    this.setState({ dosages: dosages })
   }
 
   render() {
-    const value = `${this.state.drug};${this.state.time};${this.state.quantity}`;
-
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Baymax</h1>
-        </header>
-        <div>
-          <label>
-            Drug:
-            <input type="text" value={this.state.drug} onChange={(e) => this.handleChange('drug', e)} />
-          </label>
-          <label>
-            Time:
-            <input type="text" value={this.state.time} onChange={(e) => this.handleChange('time', e)} />
-          </label>
-          <label>
-            Quantity:
-            <input type="text" value={this.state.quantity} onChange={(e) => this.handleChange('quantity', e)} />
-          </label>
-        </div>
-        <QRCode value={value} />
+      <div>
+        <NavBar />
+        <Container className="App">
+          <Row>
+            <Col>
+              <InputForm
+                handleChange={this.handleChange}
+                handleDateChange={this.handleDateChange}
+                dosages={this.state.dosages}
+                onSubmit={this.onSubmit}
+                curData={this.state}
+                onDosageDelete={this.onDosageDelete}
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <QR data={this.state} />
+            </Col>
+          </Row>
+        </Container>
       </div>
     );
   }

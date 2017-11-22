@@ -3,9 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bootstrap": "4.0.0-beta.2",
+    "moment": "^2.19.2",
     "qrcode.react": "^0.7.2",
+    "rc-time-picker": "^3.2.1",
     "react": "^16.1.1",
-    "react-dom": "^16.1.1"
+    "react-datepicker": "^0.61.0",
+    "react-dom": "^16.1.1",
+    "reactstrap": "next"
   },
   "devDependencies": {
     "react-scripts": "1.0.17"
