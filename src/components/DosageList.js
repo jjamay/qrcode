@@ -14,6 +14,8 @@ const DosageList = ({ dosages, onDelete }) => {
           <th>#</th>
           <th>Time</th>
           <th>Dosage</th>
+          <th>Start Date</th>
+          <th>Repeat</th>
           <th></th>
         </tr>
       </thead>
@@ -23,7 +25,11 @@ const DosageList = ({ dosages, onDelete }) => {
           <th scope="row">{index + 1}</th>
           <td>{dosage.time.format('hh:mm a')}</td>
           <td>{dosage.quantity}</td>
-          <td onClick={e => deleteDosage(index, e)}><Button color="danger">Delete</Button></td>
+          <td>{dosage.startDate.format('DD/MM/YYYY')}</td>
+          <td>{dosage.repeat}</td>
+          <td onClick={e => deleteDosage(index, e)}>
+            <Button size="sm" color="danger">Delete</Button>
+          </td>
         </tr>
       ))}
       </tbody>

@@ -1,11 +1,7 @@
 import React from 'react'
 import { Col, FormGroup, Label, Input, } from 'reactstrap';
-import Dosages from './Dosages';
-import DatePicker from 'react-datepicker';
-import moment from 'moment';
-import 'react-datepicker/dist/react-datepicker.css';
 
-const InputForm = ({ handleChange, handleDateChange, dosages, onSubmit, curData , onDosageDelete }) => (
+const InputForm = ({ handleChange, handleDateChange, curData }) => (
   <div>
     <FormGroup row>
       <Label sm={2} for="name">Medication Name</Label>
@@ -31,13 +27,6 @@ const InputForm = ({ handleChange, handleDateChange, dosages, onSubmit, curData 
         </Input>
       </Col>
     </FormGroup>
-    <FormGroup row>
-      <Label sm={2} for="startdate">Start Date</Label>
-      <Col sm={10}>
-        <DatePicker selected={curData.startdate} onChange={handleDateChange} />
-      </Col>
-    </FormGroup>
-    <Dosages dosages={dosages} onSubmit={onSubmit} onDosageDelete={onDosageDelete} />
   </div>
 );
 

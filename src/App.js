@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Container, Row, Col } from 'reactstrap'
-import NavBar from './Navbar';
-import InputForm from './InputForm';
-import QR from './QR';
-import moment from 'moment';
+import NavBar from './components/Navbar';
+import InputForm from './components/InputForm';
+import QR from './components/QR';
+import Dosages from './components/Dosages';
 
 class App extends Component {
   constructor(props) {
@@ -14,7 +14,6 @@ class App extends Component {
       dosages: [],
       quantity: '',
       units: 'Pills',
-      startdate: moment()
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleDateChange = this.handleDateChange.bind(this);
@@ -46,20 +45,24 @@ class App extends Component {
         <NavBar />
         <Container className="App">
           <Row>
-            <Col>
+            <Col md="9">
               <InputForm
                 handleChange={this.handleChange}
                 handleDateChange={this.handleDateChange}
-                dosages={this.state.dosages}
-                onSubmit={this.onSubmit}
                 curData={this.state}
-                onDosageDelete={this.onDosageDelete}
               />
+            </Col>
+            <Col md="3">
+              <QR data={this.state} />
             </Col>
           </Row>
           <Row>
             <Col>
-              <QR data={this.state} />
+              <Dosages
+                dosages={this.state.dosages}
+                onSubmit={this.onSubmit}
+                onDosageDelete={this.onDosageDelete}
+              />
             </Col>
           </Row>
         </Container>
