@@ -13,7 +13,7 @@ class App extends Component {
       name: '',
       dosages: [],
       quantity: '',
-      units: 'Pills',
+      units: 'p',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleDateChange = this.handleDateChange.bind(this);

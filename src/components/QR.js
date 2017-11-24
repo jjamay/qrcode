@@ -1,13 +1,13 @@
 import React from 'react';
 import QRCode from 'qrcode.react';
 
-const dosagesToString = (dosages) => {
+const dosagesToString = dosages => {
   let str = '';
   dosages.forEach(dosage => {
     if (str) {
       str += ',';
     }
-    str += `(${dosage.time.format('hh:mm a')},${dosage.quantity},${dosage.startDate.format('DD/MM/YYYY')},${dosage.repeat})`
+    str += `${dosage.time.format('hh:mm a')}|${dosage.quantity}|${dosage.startDate.format('MM/DD/YYYY')}|${dosage.repeat}`
   });
   return str;
 }

@@ -14,7 +14,7 @@ class Dosages extends Component {
       time: moment.utc(0),
       quantity: 1,
       startDate: moment(),
-      repeat: 'None'
+      repeat: 'n'
     };
     this.onSubmit = this.onSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -29,7 +29,7 @@ class Dosages extends Component {
       time: moment.utc(0),
       quantity: 1,
       startDate: moment(),
-      repeat: 'None'
+      repeat: 'n'
     });
   }
 
@@ -53,18 +53,7 @@ class Dosages extends Component {
         <Form style={{ background: 'info'}} inline onSubmit={this.onSubmit}>
           <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
             <Label for="quantity" className="mr-sm-2">Quantity</Label>
-            <Input type="select" name="quantity" id="quantity" value={this.state.quantity} onChange={this.handleChange} bsSize="sm">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-              <option>9</option>
-              <option>10</option>
-            </Input>
+            <Input type="text" name="quantity" id="quantity" value={this.state.quantity} onChange={this.handleChange} bsSize="sm" />
           </FormGroup>
           <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
             <Label for="time" className="mr-sm-2">Time</Label>
@@ -86,16 +75,16 @@ class Dosages extends Component {
           <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
             <Label for="repeat" className="mr-sm-2">Repeat</Label>
             <Input type="select" name="repeat" id="repeat" value={this.state.repeat} onChange={this.handleChange} bsSize="sm">
-              <option>None</option>
-              <option>Every day</option>
-              <option>Every 2 days</option>
-              <option>Every 3 days</option>
-              <option>Every 4 days</option>
-              <option>Every 5 days</option>
-              <option>Every 6 days</option>
-              <option>Every week</option>
-              <option>Biweekly</option>
-              <option>Monthly</option>
+              <option value="n">None</option>
+              <option value="1d">Every day</option>
+              <option value="2d">Every 2 days</option>
+              <option value="3d">Every 3 days</option>
+              <option value="4d">Every 4 days</option>
+              <option value="5d">Every 5 days</option>
+              <option value="6d">Every 6 days</option>
+              <option value="1w">Every week</option>
+              <option value="2w">Biweekly</option>
+              <option value="m">Monthly</option>
             </Input>
           </FormGroup>
           <Button outline color="primary" size="sm">Add Dosage</Button>

@@ -19,11 +19,12 @@ const InputForm = ({ handleChange, handleDateChange, curData }) => (
       <Label sm={3} for="units">Units</Label>
       <Col sm={9}>
         <Input type="select" name="units" id="units" onChange={handleChange} value={curData.units} >
-          <option>Pills</option>
-          <option>Sprays</option>
-          <option>Teaspoons</option>
-          <option>Tablespoons</option>
-          <option>Milligrams</option>
+          <option value="p">Pills</option>
+          <option value="s">Sprays</option>
+          <option value="tsp">Teaspoons</option>
+          <option value="tbsp">Tablespoons</option>
+          <option value="g">Grams</option>
+          <option value="mg">Milligrams</option>
         </Input>
       </Col>
     </FormGroup>
